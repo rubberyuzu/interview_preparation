@@ -10,13 +10,15 @@ void delete_node(int i, struct node* node){
 	struct node* current = node;
 	
 	for (int j = 0; j < i-1; ++j){
-		current = current->point; 
+		current = current->point;
 	}
+	// free(current->point);
 	current->point = current->point->point;
 
 }
 
 int main(){
+	// have to create a push func to allocate memory
 	struct node node4;
 	node4.value = 10;
 	node4.point = NULL;
