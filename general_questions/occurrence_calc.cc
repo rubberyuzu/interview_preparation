@@ -1,27 +1,32 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 #define NALPHA 26
 
-void occurrence_calc(string word);
+using namespace std;
 
-int main() {
-	string word = "aabbcdeff";
-	occurrence_calc(word);
-}
-
-void occurrence_calc(string word) {
-	int result[NALPHA];
-	for (int i = 0; i < NALPHA; ++i) {
+void solve(int result[], string str){
+	int i;
+	for (i = 0; i < NALPHA; ++i){
 		result[i] = 0;
 	}
-	for (int i = 0; i < word.length(); ++i) {
-		result[word[i]-'a']++;
+
+	for (i = 0; i < str.length(); ++i){
+		result[str[i]-'a']+=1;
 	}
-	for (int i = 0; i < NALPHA; ++i) {
-		printf("%c : %d\n", i+'a', result[i]);
+
+	for (i = 0; i < NALPHA; ++i){
+		printf("%c => %d times\n", i+'a', result[i]);;
 	}
+
 }
 
-	
+int main(){
+	int result[NALPHA];
+	string str = "aaaiiiuuuuu";
+
+	solve(result, str);
+
+	return 0;
+}
+
